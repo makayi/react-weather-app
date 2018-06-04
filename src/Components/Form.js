@@ -34,6 +34,7 @@ class FormContainer extends Component {
     }
     handleFullNameChange(e) {
       this.setState({ ownerName: e.target.value });
+      
     }
     handleCurrentPetCountChange(e) {
       this.setState({ currentPetCount: e.target.value });
