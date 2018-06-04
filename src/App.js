@@ -11,6 +11,7 @@ import WeatherCard from './Components/CustomComponents/WeatherCard'
 class App extends Component {
   WEATHER_BASE_URL="http://api.openweathermap.org/data/2.5/weather?q="
   appid="68bceb4fa74247f891b72a68a008b413"
+  ICON_BASE_URL="http://openweathermap.org/img/w/"
   constructor(props){
     super(props);
     this.state={
@@ -26,7 +27,11 @@ class App extends Component {
       .then((responseJson) => {
          console.log(responseJson);
         this.setState({
-          data: {"city":responseJson.name,"temp":responseJson.main.temp,"weather":responseJson.weather[0].main,"desc":responseJson.weather[0].description}
+          data: {"city":responseJson.name,
+          "temp":responseJson.main.temp,
+          "weather":responseJson.weather[0].main,
+          "desc":responseJson.weather[0].description,
+          "iconUrl":this.ICON_BASE_URL+responseJson.weather[0].icon+".png"}
         })
       
       })
