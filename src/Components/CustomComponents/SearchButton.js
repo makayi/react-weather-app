@@ -3,13 +3,14 @@ import propTypes from 'prop-types'
 
 
  const SearchButton=(props)=>(
-    <buttton 
+    <button 
     className={props.styleCss}
     type={props.type}
     name={props.name}
+    value="Submit"
     >
     {props.title}
-    </buttton> 
+    </button> 
 );
 
     SearchButton.propTypes={

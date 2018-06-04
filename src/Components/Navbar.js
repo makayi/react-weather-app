@@ -12,7 +12,11 @@ return(
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand">Navbar</a>
     <ul className="navbar-nav  justify-content-end"> {navbarLinks}</ul>
-     <SearchFormContainer/>
+     <SearchFormContainer 
+      handleSubmit={props.handleSubmit}
+      handleCityChange={props.handleCityChange}
+      city={props.city}
+      />
   
    </nav>
 )

@@ -17,7 +17,10 @@ SearchInput.propTypes={
     className:propTypes.string,
     placeholder:propTypes.string.isRequired,
     controlFunc:propTypes.func.isRequired,
-    content:propTypes.oneOfType(['number','text']).isRequired
+    content: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.number,
+      ]).isRequired
 }
 
 

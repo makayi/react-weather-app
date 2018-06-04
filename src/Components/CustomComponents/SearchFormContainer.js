@@ -3,52 +3,24 @@ import SearchButton from '../CustomComponents/SearchButton'
 import SearchInput from '../CustomComponents/SearchInput'
 
 class SearchFormContainer  extends Component{
+
+
   constructor(props){
     super(props);
     this.state={
-      searchTerm:''
+      city:'london',
+      searchTerm: ''
     }
   }
 
- componentDidMount(){
-  this.getMoviesFromApiAsync();
- }
-
-  getMoviesFromApiAsync() {
-  return fetch('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=68bceb4fa74247f891b72a68a008b413')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson);
-      return responseJson.weather;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-  handleEventFormInputEvents=({target:{value}},inputName)=>{
-    switch (inputName) {
-      case 'button':
-
-        break;
-     case 'input':
-       this.setState({
-         searchTerm:value
-       });
-
-        
-       break;
-      default:
-        break;
-    }
-  }
   render(){
     return(
       
-        <form className="form-inline">
+        <form className="form-inline" onSubmit={this.props.handleSubmit}>
         <SearchInput
          placeholder="Search"
-         content={this.state.searchTerm}
-         controlFunc={e=>this.handleEventFormInputEvents(e,'input')}
+         content={this.props.city}
+         controlFunc={this.props.handleCityChange}
          styleCSS="form-control mr-sm-2"
     />
   
@@ -57,7 +29,8 @@ class SearchFormContainer  extends Component{
    type="submit"
    title="Search"
    name="searchBtn"
-   onClick={e=>this.handleEventFormInputEvents(e,'button')}/>
+   value="Submit"
+/>
  </form>
 
     );
