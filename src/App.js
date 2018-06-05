@@ -9,13 +9,14 @@ class App extends Component {
   WEATHER_BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=';
   appid = '68bceb4fa74247f891b72a68a008b413';
   ICON_BASE_URL = 'http://openweathermap.org/img/w/';
+
   constructor(props) {
     super(props);
     this.state = {
       city: '',
       data: {},
-    }
-    
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -42,6 +43,7 @@ class App extends Component {
   }
 
   handleSubmit(e) {
+    console.log('HANDLEEE')
     e.preventDefault();
     this.getWeatherFromApiAsync(this.state.city);
     console.log(e);
@@ -52,6 +54,7 @@ class App extends Component {
       city: value,
     });
   };
+  
   render() {
     return (
       <div className="App">
