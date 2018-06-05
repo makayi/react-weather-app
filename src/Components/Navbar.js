@@ -5,12 +5,12 @@ const Navbar = props => {
   const links = ['Home', 'About', 'Contact'];
   const navbarLinks = links.map((link, index) => (
     <li key={index} className="nav-item">
-      <a className="nav-link" href="#">
+      <a className="nav-link" href="https://reactjs.org/">
         {link}
       </a>
     </li>
   ));
-  
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand">Navbar</a>
